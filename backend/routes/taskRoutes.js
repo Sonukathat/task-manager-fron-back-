@@ -2,11 +2,10 @@ const express = require("express");
 const router = express.Router();
 const taskController = require("../controllers/taskController");
 
-// Consistent routes - all under /api/task
-router.get("/", taskController.getTasks); // this will be used as /api/task
-router.post("/", taskController.createTask); // /api/task
-router.put("/update/:id", taskController.updateTask); // /api/task/update/:id
-router.put("/checkupdate/:id", taskController.toggleComplete); // /api/task/checkupdate/:id
-router.delete("/:id", taskController.deleteTask); // /api/task/:id
+router.get("/", taskController.getTasks);
+router.post("/api/task", taskController.createTask);
+router.put("/api/task/update/:id", taskController.updateTask);
+router.put("/task/checkupdate/:id", taskController.toggleComplete);
+router.delete("/api/task/:id", taskController.deleteTask);
 
 module.exports = router;
