@@ -3,7 +3,7 @@ let inp = document.querySelector("#inp");
 let section1 = document.querySelector("#section1"); 
 let section2 = document.querySelector("#section2"); 
 
-let baseUrl = 'http://localhost:3000';
+let baseUrl = 'https://task-manager-fron-back.onrender.com';
 
 let taskToUpdate = null;
 
@@ -41,7 +41,7 @@ const createtask = (taskObj) => {
         }
 
         try {
-            const response = await fetch(`${baseUrl}/task/checkupdate/${taskObj._id}`, {
+            const response = await fetch(`${baseUrl}/api/task/checkupdate/${taskObj._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -75,7 +75,7 @@ const createtask = (taskObj) => {
 // GET tasks from backend
 const getData = async () => {
     try {
-        const res = await fetch(`${baseUrl}`);
+        const res = await fetch(`${baseUrl}/api/task`);
         const data = await res.json();
         data.map((ele) => createtask(ele));
     } catch (error) {
