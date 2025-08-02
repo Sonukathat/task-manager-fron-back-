@@ -3,6 +3,8 @@ let inp = document.querySelector("#inp");
 let section1 = document.querySelector("#section1"); 
 let section2 = document.querySelector("#section2"); 
 
+let baseUrl = 'http://localhost:3000';
+
 let taskToUpdate = null;
 
 const createtask = (taskObj) => {
@@ -14,7 +16,7 @@ const createtask = (taskObj) => {
 
     // DELETE
     delBtn.addEventListener('click', async function () {
-        await fetch(`http://localhost:3000/api/task/${taskObj._id}`, {
+        await fetch(`${baseUrl}/api/task/${taskObj._id}`, {
             method: "DELETE"
         });
         taskDiv.remove();
@@ -39,7 +41,7 @@ const createtask = (taskObj) => {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/task/checkupdate/${taskObj._id}`, {
+            const response = await fetch(`${baseUrl}/task/checkupdate/${taskObj._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -73,7 +75,7 @@ const createtask = (taskObj) => {
 // GET tasks from backend
 const getData = async () => {
     try {
-        const res = await fetch("http://localhost:3000");
+        const res = await fetch(`${baseUrl}`);
         const data = await res.json();
         data.map((ele) => createtask(ele));
     } catch (error) {
@@ -92,7 +94,7 @@ addBtn.addEventListener("click", async () => {
     // UPDATE existing task
     if (addBtn.textContent === "Updated") {
         try {
-            const updatedTask = await fetch(`http://localhost:3000/api/task/update/${taskToUpdate.id}`, {
+            const updatedTask = await fetch(`${baseUrl}/api/task/update/${taskToUpdate.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -120,7 +122,7 @@ addBtn.addEventListener("click", async () => {
     const taskData = { title: inp.value };
 
     try {
-        const response = await fetch("http://localhost:3000/api/task", {
+        const response = await fetch(`${baseUrl}/api/task`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
