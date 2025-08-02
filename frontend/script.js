@@ -1,7 +1,7 @@
 let addBtn = document.querySelector("#addbtn");
 let inp = document.querySelector("#inp");
-let section1 = document.querySelector("#section1"); 
-let section2 = document.querySelector("#section2"); 
+let section1 = document.querySelector("#section1");
+let section2 = document.querySelector("#section2");
 
 let baseUrl = 'https://task-manager-fron-back.onrender.com';
 
@@ -32,12 +32,14 @@ const createtask = (taskObj) => {
         };
     });
 
-    
+
     check.addEventListener("change", async function () {
         if (check.checked) {
             section2.appendChild(taskDiv);
+            // task.style.textDecoration = "line-through";
         } else {
             section1.appendChild(taskDiv);
+            // task.style.textDecoration = "none";
         }
 
         try {
@@ -64,7 +66,7 @@ const createtask = (taskObj) => {
 
     taskDiv.append(check, task, delBtn, upBtn);
 
-    
+
     if (taskObj.completed) {
         section2.appendChild(taskDiv);
     } else {
