@@ -75,7 +75,7 @@ const createtask = (taskObj) => {
 // GET tasks from backend
 const getData = async () => {
     try {
-        const res = await fetch(`${baseUrl}`);
+        const res = await fetch('https://task-manager-fron-back.onrender.com');
         const data = await res.json();
         data.map((ele) => createtask(ele));
     } catch (error) {
