@@ -73,14 +73,14 @@ const createtask = (taskObj) => {
 };
 
 // GET tasks from backend
-// const getData = async () => {
-//     try {
-//         const res = await fetch(`${baseUrl}`);
-//         const data = await res.json();
-//         data.map((ele) => createtask(ele));
-//     } catch (error) {
-//         console.log(error);
-//     }
+const getData = async () => {
+    try {
+        const res = await fetch(`${baseUrl}`);
+        const data = await res.json();
+        data.map((ele) => createtask(ele));
+    } catch (error) {
+        console.log(error);
+    }
 };
 getData();
 
