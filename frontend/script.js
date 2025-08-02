@@ -3,7 +3,7 @@ let inp = document.querySelector("#inp");
 let section1 = document.querySelector("#section1"); 
 let section2 = document.querySelector("#section2"); 
 
-let baseUrl = 'http://localhost:3000';
+let baseUrl = 'https://task-manager-fron-back.onrender.com';
 
 let taskToUpdate = null;
 
